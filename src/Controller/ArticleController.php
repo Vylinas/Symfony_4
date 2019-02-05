@@ -34,8 +34,8 @@ class ArticleController extends AbstractController
     }
     /**
      * @Route("/", 
-     *      name        = "get.article.all",
-     *      methods     = {"GET"}
+     *      name    = "article.all",
+     *      methods = {"GET"}
      * )
      */
     public function getArticleAll() 
@@ -48,8 +48,8 @@ class ArticleController extends AbstractController
 
     /**
      * @Route("/{id}",
-     *      name="get.article",
-     *      methods= {"GET"}
+     *      name    ="article",
+     *      methods = {"GET"}
      * )
      */
     public function getArticle(Article $article) 

@@ -1,22 +1,21 @@
 {% extends 'user/index.html.twig' %}
 
 {% block body %}
-
-{% for article in articles %}
-    <div id="main">
-        <article class="post featured">
-            <header class="major">
-                <span class="date">{{ article.createAt|date("m/d/Y") }}</span>
-                <h2><a href="{{ path('get.article.all', {id: article.id} ) }}">{{ article.title }}</a></h2>
-                <p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-                facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-                amet nullam sed etiam veroeros.</p>
-            </header>
-            <a href="{{ path('get.article.all', {id: article.id} ) }}" class="image main"><img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="" /></a>
-            <ul class="actions special">
-                <li><a href="#" class="button large">Full Story</a></li>
-            </ul>
-		</article>
-    </div>
-{% endfor %}
+<div id="main">
+    <section class="posts">
+    {% for article in articles %}
+    <article>
+        <header>
+            <span class="date">{{ article.createAt|date("m/d/Y") }}</span>
+            <h2><a href="{{ path('article', {id: article.id} ) }}">{{ article.title }}</a></h2>
+        </header>
+        <a href="#" class="image fit"><img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="" /></a>
+        <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+        <ul class="actions special">
+            <li><a href="{{ path('article', {id: article.id} ) }}" class="button">Read More</a></li>
+        </ul>
+    </article>
+    {% endfor %}
+    </section>
+</div>
 {% endblock %}

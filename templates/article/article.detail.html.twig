@@ -1,12 +1,16 @@
-{% extends 'base.html.twig' %}
+{% extends 'user/index.html.twig' %}
 
 {% block body %}
-
-{% if article is not empty %}
-    <h1>{{ article.title }}</h1>
-    <p>{{ article.content }}</p>
-    {% if article.imageName is not empty %}
-        <img src="{{ vich_uploader_asset(article, 'imageFile') }}">
-    {% endif %}
-{% endif %}
+<div id="main">
+    <article class="post featured">
+        <header class="major">
+            <span class="date">{{ article.createAt|date("m/d/Y") }}</span>
+            <h2>{{ article.title }}</h2>
+        </header>
+        {% if article.imageName is not empty %}
+            <img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="" />
+        {% endif %}
+        <p>{{ article.content }}</p>
+    </article>
+</div>
 {% endblock %}
