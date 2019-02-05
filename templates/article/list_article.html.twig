@@ -1,14 +1,22 @@
-{% extends 'base.html.twig' %}
+{% extends 'user/index.html.twig' %}
 
 {% block body %}
 
 {% for article in articles %}
-    <a href="{{ path('get.article', {id: article.id}) }}"
-    <h1>{{ article.title }}</h1>
-    <p>{{ article.content }}</p>
-    {% if article.imageFile is not empty %}
-        <img src="{{ vich_uploader_asset(article, 'imageFile') }}">
-    {% endif %}
-    </a>
+    <div id="main">
+        <article class="post featured">
+            <header class="major">
+                <span class="date">{{ article.createAt|date("m/d/Y") }}</span>
+                <h2><a href="{{ path('get.article.all', {id: article.id} ) }}">{{ article.title }}</a></h2>
+                <p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
+                facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
+                amet nullam sed etiam veroeros.</p>
+            </header>
+            <a href="{{ path('get.article.all', {id: article.id} ) }}" class="image main"><img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="" /></a>
+            <ul class="actions special">
+                <li><a href="#" class="button large">Full Story</a></li>
+            </ul>
+		</article>
+    </div>
 {% endfor %}
 {% endblock %}
