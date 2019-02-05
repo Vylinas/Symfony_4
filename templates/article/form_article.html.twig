@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% if is_granted('ROLE_ADMIN') %}
+{{ form_start(form) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
+    
+    {{ form_row(form.title) }}
+    {{ form_row(form.content) }}
+    {{ form_row(form.imageFile) }}
+    {{ form_row(form.active) }}
+
+    <button>Submit</button>
+
+{{ form_end(form) }}
+{% endif %}
+
+
+{% endblock %}

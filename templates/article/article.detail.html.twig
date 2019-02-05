@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% if article is not empty %}
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.content }}</p>
+    {% if article.imageName is not empty %}
+        <img src="{{ vich_uploader_asset(article, 'imageFile') }}">
+    {% endif %}
+{% endif %}
+{% endblock %}
